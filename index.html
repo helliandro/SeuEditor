@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Place your kit's code here -->
+    <script src="https://kit.fontawesome.com/c65f88fd19.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  </head>
+  <body onload="modoEditor()">
+    <h1>Seu Editor de Texto</h1>
+    <div>
+     <button type="button" class="button button-3" onclick="comando('bold')"><i class="fas fa-bold fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('underline')"><i class="fas fa-underline fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('italic')"><i class="fas fa-italic fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('strikeThrough')"><i class="fas fa-strikethrough fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('justifyLeft')"><i class="fas fa-align-left fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('justifyCenter')"><i class="fas fa-align-center fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('justifyRight')"><i class="fas fa-align-right fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('justifyFull')"><i class="fas fa-align-justify fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('copy')"><i class="fas fa-copy fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('cut')"><i class="fas fa-cut fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('insertParagraph')"><i class="fas fa-paragraph fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('superscript')"><i class="fas fa-superscript fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('subscript')"><i class="fas fa-subscript fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('undo')"><i class="fas fa-undo fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('redo')"><i class="fas fa-redo fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('insertUnorderedList')"><i class="fas fa-list-ul fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('insertOrderedList')"><i class="fas fa-list-ol fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('outdent')"><i class="fas fa-outdent fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('indent')"><i class="fas fa-indent fa-1x"></i></button>
+     <button type="button" class="button button-3" onclick="comando('removeFormat')"><i class="fas fa-remove-format fa-1x"></i></button>
+     <br>
+      Fonte: <select onchange="comandoArg('fontName', this.value)">
+       <option value="Arial" selected>Arial</option>
+       <option value="Calibri">Calibri</option>
+       <option value="Comic Sans MS">Comic Sans MS</option>
+       <option value="Courier New">Courier New</option>
+       <option value="Ebrima">Ebrima</option>
+       <option value="Tahoma">Tahoma</option>
+       <option value="Times New Roman">Times</option>
+      </select>
+      Tamanho da Fonte: <select onchange="comandoArg('fontSize', this.value)">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3"selected>3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+       </select>
+        Cor de fundo:  <input onchange="comandoArg('hiliteColor', this.value)" type="color">
+        Cor do texto:  <input onchange="comandoArg('foreColor', this.value)" type="color">
+  </div>
+    <div class="div-corpo">
+    <iframe style="border:0px;" name="EditorDeTexto" id="EditorDeTexto" width="100%" height="350px"></iframe>
+      </div>
+<script type="text/javascript">
+  function modoEditor () {
+      EditorDeTexto.document.designMode = "On";
+      document.getElementById('EditorDeTexto').focus();
+  }
+  function comando(cmd){
+      EditorDeTexto.document.execCommand(cmd, false, null);
+  }
+  function comandoArg(cmd, arg){
+      EditorDeTexto.document.execCommand(cmd, false, arg);
+  }
+  function modoEditorOFF () {
+      EditorDeTexto.document.designMode = "Off";
+  }
+
+</script>
+<div>&reg; Helliandro</div>
+
+  </body>
+</html>
